@@ -5,6 +5,7 @@ totalPL = 0
 changePL = 0
 previousPL = 0
 averagePL = 0
+difference = 0
 
 #these need to be date and amount
 greatestProfit = 0
@@ -26,8 +27,14 @@ with open(fileName) as csvfile:
         if totalMonths <= 1:
             previousPL = int(row[1])
         else:
-            changePL =  changePL+ (int(row[1]) - previousPL)
+            difference = (int(row[1]) - previousPL)
+            changePL =  changePL+ difference
             previousPL = int(row[1])
+        #Need to get the date somehow
+        if difference > greatestProfit:
+            greatestProfit = difference
+        if difference < greatestLoss:
+            greatestLoss = difference
 
         #changePL= changePL + (int(row+1[1]) - int(row[1]))
 
@@ -39,7 +46,7 @@ with open(fileName) as csvfile:
     print(f"Total Months: {totalMonths}")
     print(f"Total: ${totalPL}")
     print(f"Average Change: ${changePL/(totalMonths-1)}")
-    print(f"Greatest Increase in Profits: ")  
-    print(f"Greatest Decrease in Profits: ")   
+    print(f"Greatest Increase in Profits: ${greatestProfit}")  
+    print(f"Greatest Decrease in Profits: ${greatestLoss}")   
    
         
