@@ -48,6 +48,8 @@ with open(fileName) as csvfile:
             decreaseList[1] = greatestLoss
         
     #calculate/print the required values
+    print("Financial Analysis")
+    print("----------------------------")
     print(f"Total Months: {totalMonths}")
     print(f"Total: ${totalPL}")
     print(f"Average Change: ${round(changePL/(totalMonths-1),2)}")
@@ -55,6 +57,8 @@ with open(fileName) as csvfile:
     print(f"Greatest Decrease in Profits: {decreaseList[0]} (${decreaseList[1]})")   
    
 with open(exportName, "w") as f:
+    f.write("Financial Analysis\n")
+    f.write("----------------------------\n")
     f.write(f"Total Months: {totalMonths}\n")
     f.write(f"Total: ${totalPL}\n")
     f.write(f"Average Change: ${round(changePL/(totalMonths-1),2)}\n")
