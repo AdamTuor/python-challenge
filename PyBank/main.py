@@ -12,6 +12,7 @@ greatestProfit = 0
 greatestLoss = 0
 
 fileName= 'C:/Users/ASROCK Z590M Phantom/Desktop/BootCamp/Challenges/python-challenge/PyBank/Resources/budget_data.csv'
+exportName = 'C:/Users/ASROCK Z590M Phantom/Desktop/BootCamp/Challenges/python-challenge/PyBank/Analysis/results.txt'
 
 with open(fileName) as csvfile:
     reader = csv.reader(csvfile)
@@ -53,4 +54,9 @@ with open(fileName) as csvfile:
     print(f"Greatest Increase in Profits: {increaseList[0]} (${increaseList[1]})")  
     print(f"Greatest Decrease in Profits: {decreaseList[0]} (${decreaseList[1]})")   
    
-        
+with open(exportName, "w") as f:
+    f.write(f"Total Months: {totalMonths}\n")
+    f.write(f"Total: ${totalPL}\n")
+    f.write(f"Average Change: ${round(changePL/(totalMonths-1),2)}\n")
+    f.write(f"Greatest Increase in Profits: {increaseList[0]} (${increaseList[1]})\n")  
+    f.write(f"Greatest Decrease in Profits: {decreaseList[0]} (${decreaseList[1]})\n")   
