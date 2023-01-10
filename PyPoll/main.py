@@ -18,6 +18,7 @@ with open(fileName) as csvfile:
         #count total votes
         totalVotes = totalVotes +1
 
+        #check who the vote is for and increment
         if row[2] == "Charles Casper Stockham":
             stockhamVotes = stockhamVotes +1
         elif row[2] == "Diana DeGette":
@@ -25,7 +26,7 @@ with open(fileName) as csvfile:
         else:
             doaneVotes = doaneVotes +1
 
-
+    #check to see who won
     if (stockhamVotes > degetteVotes) and (stockhamVotes > doaneVotes):
         winner = "Charles Casper Stockham"
     elif (degetteVotes > stockhamVotes) and (degetteVotes > doaneVotes):
@@ -38,6 +39,7 @@ with open(fileName) as csvfile:
     print("-------------------------")
     print(f"Total Votes: {totalVotes}") 
     print("-------------------------")   
+    #calculate vote percentage and round to 3 decimal places.
     print(f"Charles Casper Stockham: {round((stockhamVotes/totalVotes)*100,3)}% ({stockhamVotes})")
     print(f"Diana DeGette: {round((degetteVotes/totalVotes)*100,3)}% ({degetteVotes})")
     print(f"Raymon Anthony Doane: {round((doaneVotes/totalVotes)*100,3)}%({doaneVotes})")
@@ -45,6 +47,7 @@ with open(fileName) as csvfile:
     print(f"Winner: {winner}")
     print("-------------------------")
 
+#write to results.txt
 with open(exportName, "w") as f:
     f.write("Election Results\n")
     f.write("----------------------------\n")
