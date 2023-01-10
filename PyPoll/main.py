@@ -1,4 +1,5 @@
 import csv
+import os
 
 totalVotes = 0
 stockhamVotes = 0
@@ -6,9 +7,8 @@ degetteVotes = 0
 doaneVotes = 0
 percentOfVotes = 0
 
-
-fileName="C:/Users/ASROCK Z590M Phantom/Desktop/BootCamp/Challenges/python-challenge/PyPoll/Resources/election_data.csv"
-exportName = "C:/Users/ASROCK Z590M Phantom/Desktop/BootCamp/Challenges/python-challenge/PyPoll/Analysis/results.txt"
+fileName = os.path.join("Resources", "election_data.csv")
+exportName = os.path.join("Analysis", "results.txt")
 
 with open(fileName) as csvfile:
     reader = csv.reader(csvfile)

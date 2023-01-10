@@ -1,4 +1,5 @@
 import csv
+import os
 
 totalMonths = 0
 totalPL = 0
@@ -11,8 +12,8 @@ decreaseList = ["",0]
 greatestProfit = 0
 greatestLoss = 0
 
-fileName= 'C:/Users/ASROCK Z590M Phantom/Desktop/BootCamp/Challenges/python-challenge/PyBank/Resources/budget_data.csv'
-exportName = 'C:/Users/ASROCK Z590M Phantom/Desktop/BootCamp/Challenges/python-challenge/PyBank/Analysis/results.txt'
+fileName = os.path.join('Resources', 'budget_data.csv')
+exportName = os.path.join('Analysis', 'results.txt')
 
 with open(fileName) as csvfile:
     reader = csv.reader(csvfile)
